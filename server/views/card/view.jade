@@ -1,0 +1,208 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title Loliful: For the smartest humans in the Universe
+    meta(property="og:type", content="article")
+    meta(property="og:site_name", content="Loliful")
+    meta(property="og:image", content="#{item.img.replace(/^https/, 'http')}")
+    meta(property="og:image:type", content="image/png")
+    meta(property="og:image:width", content="1024")
+    meta(property="og:image:height", content="768")
+    meta(property="og:title", content="#{item.data.nailText || 'Loliful joke'}")
+
+    meta(property="twitter:card", content="summary_large_image")
+    meta(property="twitter:site", content="@loliful_app")
+    meta(property="twitter:creator", content="@loliful_app")
+    meta(property="twitter:title", content="#{item.data.nailText || 'Loliful joke'}")
+    meta(property="twitter:description", content="#{item.data.hammerText.substr(0, 20)}")
+    meta(property="twitter:image", itemprop="image", content="#{item.img.replace(/^https/, 'http')}")
+
+    meta(itemprop="name", content="Loliful")
+    meta(itemprop="description", content="#{item.data.nailText || 'Loliful joke'}")
+    meta(itemprop="image", content="#{item.img.replace(/^https/, 'http')}")
+
+    link(href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Sanchez', rel='stylesheet', type='text/css')
+
+  style.
+    html, body {
+      margin: 20px;
+      padding: 0;
+      color: #fff;
+      font-family: Lato;
+    }
+
+    .card {
+      margin: 0;
+      /*padding: 20px 10px;*/
+      width: 1024px;
+      height: 768px;
+      position: relative;
+
+      left: 50%;
+      margin-left: -512px;
+
+      background-image: linear-gradient(135deg, #3023AE 0%, #A85ECF 79%, #C86DD7 100%);
+      position: relative;
+      z-index: 1;
+    }
+    .card-stars {
+      position:absolute;
+      left: -66px;
+      top: -32px;
+      width: 1195px;
+      height: 842px;
+      background: url('https://loliful.io/share/card-star-bg.png');
+      z-index: 2;
+    }
+
+    .card.grad-1 {
+      background-image: linear-gradient(135deg, #3023AE 0%, #A85ECF 79%, #C86DD7 100%);
+    }
+
+    .card.grad-2 {
+      background-image: linear-gradient(135deg, #AC319C 0%, #FDC276 100%);
+    }
+
+    .card.grad-3 {
+      background-image: linear-gradient(135deg, #3A4084 0%, #53DEA2 100%);
+    }
+
+    .card.grad-4 {
+      background-image: linear-gradient(135deg, #55A14D 0%, #FAF473 100%);
+    }
+
+    .card.grad-5 {
+      background-image: linear-gradient(135deg, #3181AC 0%, #FD769F 100%);
+    }
+
+    .card.grad-6 {
+      background-image: -webkit-linear-gradient(top left, #236BAE 0%, #73EFCE 100%);
+      background-image: -o-linear-gradient(top left, #236BAE 0%, #73EFCE 100%);
+      background-image: linear-gradient(to bottom right, #236BAE 0%, #73EFCE 100%);
+    }
+
+    .card.grad-7 {
+      background-image: -webkit-linear-gradient(top left, #C35D49 0%, #FFF666 100%);
+      background-image: -o-linear-gradient(top left, #C35D49 0%, #FFF666 100%);
+      background-image: linear-gradient(to bottom right, #C35D49 0%, #FFF666 100%);
+    }
+
+    .card.grad-8 {
+      background-image: -webkit-linear-gradient(top left, #9E347D 0%, #EB7A7A 100%);
+      background-image: -o-linear-gradient(top left, #9E347D 0%, #EB7A7A 100%);
+      background-image: linear-gradient(to bottom right, #9E347D 0%, #EB7A7A 100%);
+    }
+
+    .card.grad-9 {
+      background-image: -webkit-linear-gradient(top left, #BE6357 0%, #A9D76D 100%);
+      background-image: -o-linear-gradient(top left, #BE6357 0%, #A9D76D 100%);
+      background-image: linear-gradient(to bottom right, #BE6357 0%, #A9D76D 100%);
+    }
+
+    .card.grad-10 {
+      background-image: -webkit-linear-gradient(top left, #2EA4BD 0%, #CF9BF1 100%);
+      background-image: -o-linear-gradient(top left, #2EA4BD 0%, #CF9BF1 100%);
+      background-image: linear-gradient(to bottom right, #2EA4BD 0%, #CF9BF1 100%);
+    }
+
+    .card .authors {
+      position: relative;
+      top: 90px;
+      text-align: center;
+      font-weight: 100;
+      /* Jackie Lomba: */
+      font-family: Lato;
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.50);
+      letter-spacing: 0.1em;
+    }
+
+    .card .authors b {
+      margin-left: 10px;
+      margin-right: 10px;
+      font-family: Lato;
+      font-size: 24px;
+      color: #FFFFFF;
+    }
+
+    .card .content {
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      top: 50%;
+      margin-top: -235px;
+      width: auto;
+      height: 410px;
+      background: #FFF;
+      color: #000;
+      box-shadow: 0px 25px 40px 0px rgba(204, 165, 206, 0.20);
+      border-radius: 8px;
+      padding: 35px 80px;
+      text-align: left;
+      overflow: hidden;
+      z-index: 3;
+      /*border: 1px solid green;*/
+    }
+
+    .card .logo {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      margin-left: -101px;
+      z-index: 5;
+    }
+
+    .card .content p.text {
+      margin: 0;
+      padding: 0;
+      padding-top: 10px;
+      padding-top: 10px;
+      font-family: Sanchez;
+      font-size: 34px;
+      color: #000000;
+      line-height: 48px;
+      position: relative;
+      top: 50%;
+      width: 100%;
+
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      -ms-word-break: break-all;
+      word-break: break-all;
+      word-break: break-word;
+      -ms-hyphens: auto;
+      -moz-hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    .card .content p span {
+      color: #99A3B3;
+      margin-left: 10px;
+    }
+body
+  #card.card(class = 'grad-' + gradNum)
+    .card-stars
+    .authors
+      | #{item.data.nailAuthor}
+      | #{item.data.hammerAuthor ? '&' : ''}
+      | #{item.data.hammerAuthor}
+    #container.content
+      p#text.text
+        | !{item.data.nailText.replace(/</g, '&lt;').replace(/[\r\n]+-/g, '<br>-')}
+        span
+          | !{item.data.hammerText.replace(/</g, '&lt;').replace(/^-/, '<br>-')}
+    .logo
+      a(href="https://app.loliful.io/")
+        img(src='https://loliful.io/share/logo.png', alt='Loliful')
+
+  script(src='https://loliful.io/share/adjust-font-size.js')
+
+  script.
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-68961256-3', 'auto');
+    ga('send', 'pageview');

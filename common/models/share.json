@@ -1,0 +1,99 @@
+{
+  "name": "share",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "hammerId": {
+      "type": "number",
+      "required": false
+    },
+    "nailId": {
+      "type": "number",
+      "required": false
+    },
+    "hammerAuthorId": {
+      "type": "Number",
+      "required": false
+    },
+    "nailAuthorId": {
+      "type": "String",
+      "required": false
+    },
+    "img": {
+        "type": "String",
+        "required": true
+    },
+    "sharedCount": {
+        "type": "Number",
+        "default": 1
+    },
+    "sharedClicks": {
+        "type": "Number",
+        "default": 0
+    },
+    "openedCount": {
+        "type": "Number",
+        "default": 0
+    },
+    "lastShared": {
+        "type": "date",
+        "defaultFn": "now"
+    },
+    "data": {
+        "type": "Object"
+    },
+    "postFacebook": {
+      "type": "Object",
+      "required": false
+    },
+    "postTwitter": {
+      "type": "Object",
+      "required": false
+    }
+  },
+  "mixins": {
+    "Timestamp": {},
+    "Sqlable": {}
+  },
+  "validations": [],
+  "relations": {
+    "nailAuthor": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "nailAuthorId"
+    },
+    "hammerAuthor": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "hammerAuthorId"
+    },
+    "nail": {
+      "type": "belongsTo",
+      "model": "nail",
+      "foreignKey": "nailId"
+    },
+    "hammer": {
+      "type": "belongsTo",
+      "model": "hammer",
+      "foreignKey": "hammerId"
+    }
+  },
+  "indexes": {
+    "user_nails_shares": {
+      "columns": "nailAuthorId, nailId",
+      "keys": {
+        "nailAuthorId": 1,
+        "nailId": 1
+      }
+    },
+    "user_hammers_shares": {
+      "columns": "hammerAuthorId, hammerId",
+      "keys": {
+        "hammerAuthorId": 1,
+        "hammerId": 1
+      }
+    }
+  },
+  "acls": [],
+  "methods": []
+}

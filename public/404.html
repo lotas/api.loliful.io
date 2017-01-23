@@ -1,0 +1,244 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>4o4iful</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Sanchez' rel='stylesheet' type='text/css'>
+
+<style>
+    html,
+    body {
+      margin: 0px;
+      padding: 0;
+      color: #fff;
+      font-family: Lato;
+    }
+
+    .card {
+      margin: 0;
+      /*padding: 20px 10px;*/
+      width: 1024px;
+      height: 768px;
+      position: relative;
+      left: 50%;
+      margin-left: -512px;
+      background-image: linear-gradient(135deg, #3023AE 0%, #A85ECF 79%, #C86DD7 100%);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .card-stars {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1024px;
+      height: 768px;
+      /*background: url('https://loliful.io/share/card-star-bg.png');*/
+      background-image: url('data:image/png;base64,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');
+      z-index: 2;
+    }
+
+    .card.grad-1 {
+      background-image: -webkit-linear-gradient(top left, #3023AE 0%, #A85ECF 79%, #C86DD7 100%);
+      background-image: -o-linear-gradient(top left, #3023AE 0%, #A85ECF 79%, #C86DD7 100%);
+      background-image: linear-gradient(to bottom right, #3023AE 0%, #A85ECF 79%, #C86DD7 100%);
+    }
+    .grad-1 span[class^='letter'] {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #A85ECF, 0 0 35px #A85ECF, 0 0 40px #A85ECF, 0 0 50px #A85ECF, 0 0 75px #A85ECF;
+    }
+
+    .card.grad-2 {
+      background-image: -webkit-linear-gradient(top left, #AC319C 0%, #FDC276 100%);
+      background-image: -o-linear-gradient(top left, #AC319C 0%, #FDC276 100%);
+      background-image: linear-gradient(to bottom right, #AC319C 0%, #FDC276 100%);
+    }
+    .grad-2 span[class^='letter'] {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #AC319C, 0 0 35px #AC319C, 0 0 40px #AC319C, 0 0 50px #AC319C, 0 0 75px #AC319C;
+    }
+
+    .card.grad-3 {
+      background-image: -webkit-linear-gradient(top left, #3A4084 0%, #53DEA2 100%);
+      background-image: -o-linear-gradient(top left, #3A4084 0%, #53DEA2 100%);
+      background-image: linear-gradient(to bottom right, #3A4084 0%, #53DEA2 100%);
+    }
+    .grad-3 span[class^='letter'] {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #3A4084, 0 0 35px #3A4084, 0 0 40px #3A4084, 0 0 50px #3A4084, 0 0 75px #3A4084;
+    }
+
+    .card.grad-4 {
+      background-image: -webkit-linear-gradient(top left, #55A14D 0%, #FAF473 100%);
+      background-image: -o-linear-gradient(top left, #55A14D 0%, #FAF473 100%);
+      background-image: linear-gradient(to bottom right, #55A14D 0%, #FAF473 100%);
+    }
+    .grad-4 span[class^='letter'] {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #55A14D, 0 0 35px #55A14D, 0 0 40px #55A14D, 0 0 50px #55A14D, 0 0 75px #55A14D;
+    }
+
+    .card.grad-5 {
+      background-image: -webkit-linear-gradient(top left, #3181AC 0%, #FD769F 100%);
+      background-image: -o-linear-gradient(top left, #3181AC 0%, #FD769F 100%);
+      background-image: linear-gradient(to bottom right, #3181AC 0%, #FD769F 100%);
+    }
+    .grad-5 span[class^='letter'] {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #3181AC, 0 0 35px #3181AC, 0 0 40px #3181AC, 0 0 50px #3181AC, 0 0 75px #3181AC;
+    }
+
+    .card.grad-6 {
+      background-image: -webkit-linear-gradient(top left, #236BAE 0%, #73EFCE 100%);
+      background-image: -o-linear-gradient(top left, #236BAE 0%, #73EFCE 100%);
+      background-image: linear-gradient(to bottom right, #236BAE 0%, #73EFCE 100%);
+    }
+    .grad-6 span[class^='letter'] {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #236BAE, 0 0 35px #236BAE, 0 0 40px #236BAE, 0 0 50px #236BAE, 0 0 75px #236BAE;
+    }
+
+    .card.grad-7 {
+      background-image: -webkit-linear-gradient(top left, #C35D49 0%, #FFF666 100%);
+      background-image: -o-linear-gradient(top left, #C35D49 0%, #FFF666 100%);
+      background-image: linear-gradient(to bottom right, #C35D49 0%, #FFF666 100%);
+    }
+    .grad-7 span[class^='letter'] {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #C35D49, 0 0 35px #C35D49, 0 0 40px #C35D49, 0 0 50px #C35D49, 0 0 75px #C35D49;
+    }
+
+    .card.grad-8 {
+      background-image: -webkit-linear-gradient(top left, #9E347D 0%, #EB7A7A 100%);
+      background-image: -o-linear-gradient(top left, #9E347D 0%, #EB7A7A 100%);
+      background-image: linear-gradient(to bottom right, #9E347D 0%, #EB7A7A 100%);
+    }
+    .grad-8 span[class^='letter'] {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #9E347D, 0 0 35px #9E347D, 0 0 40px #9E347D, 0 0 50px #9E347D, 0 0 75px #9E347D;
+    }
+
+    .card.grad-9 {
+      background-image: -webkit-linear-gradient(top left, #BE6357 0%, #A9D76D 100%);
+      background-image: -o-linear-gradient(top left, #BE6357 0%, #A9D76D 100%);
+      background-image: linear-gradient(to bottom right, #BE6357 0%, #A9D76D 100%);
+    }
+    .grad-9 span[class^='letter'] {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #BE6357, 0 0 35px #BE6357, 0 0 40px #BE6357, 0 0 50px #BE6357, 0 0 75px #BE6357;
+    }
+
+    .card.grad-10 {
+      background-image: -webkit-linear-gradient(top left, #2EA4BD 0%, #CF9BF1 100%);
+      background-image: -o-linear-gradient(top left, #2EA4BD 0%, #CF9BF1 100%);
+      background-image: linear-gradient(to bottom right, #2EA4BD 0%, #CF9BF1 100%);
+    }
+    .grad-10 span[class^='letter'] {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #2EA4BD, 0 0 35px #2EA4BD, 0 0 40px #2EA4BD, 0 0 50px #2EA4BD, 0 0 75px #2EA4BD;
+    }
+
+    .card .authors {
+      position: relative;
+      top: 90px;
+      text-align: center;
+      font-weight: 100;
+      font-family: Lato;
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.50);
+      letter-spacing: 0.1em;
+    }
+
+    .card .authors b {
+      margin-left: 10px;
+      margin-right: 10px;
+      font-family: Lato;
+      font-size: 24px;
+      color: #FFFFFF;
+    }
+
+    .card .content {
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      top: 50%;
+      margin-top: -235px;
+      width: auto;
+      height: 410px;
+      background: #FFF;
+      color: #FFF;
+      border-radius: 8px;
+      padding: 40px 50px;
+      text-align: center;
+      overflow: hidden;
+      z-index: 3;
+      /*border: 1px solid green;*/
+      font-family: Sanzhez, sans-serif;
+    }
+
+    .card .logo {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      margin-left: -101px;
+      z-index: 5;
+    }
+
+
+    .card .content span {
+      font-size: 23em;
+    }
+    .letter1 {
+        animation: glow 4s infinite alternate;
+    }
+    .letter2 {
+        animation: glow 4s infinite alternate;
+    }
+    .letter3 {
+        animation: glow 4s infinite alternate;
+    }
+
+    .status {
+        animation: fly 11s infinite normal;
+    }
+
+    @keyframes glow {
+        to {
+            text-shadow: none;
+        }
+    }
+
+    @keyframes fly {
+        0% { transform: scale(.1); }
+        80% { transform: scale(1.5); }
+        100% { transform: scale(6); }
+    }
+  </style>
+</head>
+<body>
+    <div class="card" id="card">
+        <div class="authors">
+            Intro
+            <b>&</b>
+            Outro
+        </div>
+        <div class="content" id="container">
+            <div class="status">
+                <span class="letter1">4</span>
+                <span class="letter2">0</span>
+                <span class="letter3">4</span>
+            </div>
+        </div>
+        <div class="logo">
+            <a href="https://loliful.io/"><img src="/share/logo.png" alt="Loliful" /></a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', doMagic);
+
+      function doMagic() {
+        var card = document.getElementById('card');
+        card.classList.add('grad-' + (Math.ceil(Math.random() * 10)));
+      }
+    </script>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-68961256-1', 'auto');
+ga('send', 'pageview');
+    </script>
+</body>
+</html>

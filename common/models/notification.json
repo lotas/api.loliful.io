@@ -1,0 +1,89 @@
+{
+  "name": "notification",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "userId": {
+      "type": "Number",
+      "required": true
+    },
+    "date": {
+      "type": "Date",
+      "defaultFn": "now"
+    },
+    "type": {
+      "type": "String",
+      "dataType": "VARCHAR",
+      "length": 40,
+      "required": true
+    },
+    "actorId": {
+      "type": "Number"
+    },
+    "entity": {
+      "type": "String",
+      "dataType": "VARCHAR",
+      "length": 30
+    },
+    "entityId": {
+      "type": "Number"
+    },
+    "nailId": {
+      "type": "Number"
+    },
+    "hammerId": {
+      "type": "Number"
+    },
+    "text": {
+      "type": "Object",
+      "dataType": "VARCHAR",
+      "length": "250"
+    },
+    "isRead": {
+      "type": "Number",
+      "dataType": "TINYINT",
+      "default": 0
+    },
+    "isEmailed": {
+      "type": "Number",
+      "dataType": "TINYINT",
+      "default": 0
+    }
+  },
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "mixins": {
+    "AttachMeta": {},
+    "RestrictedRest": {}
+  },
+  "indexes": {
+    "user_notification": {
+      "columns": "userId, isRead",
+      "keys": [
+        "userId",
+        "isRead"
+      ]
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "*"
+    }
+  ],
+  "methods": []
+}

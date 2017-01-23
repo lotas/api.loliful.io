@@ -1,0 +1,31 @@
+{
+	"db": {
+		"name": "db",
+		"connector": "memory"
+	},
+	"mainDb": {
+		"name": "mainDb",
+		"host": "localhost",
+		"port": 3306,
+		"url": "",
+		"database": "kontra",
+		"user": "kontra",
+		"password": "%pwd%",
+		"connector": "mysql"
+	},
+	"redis": {
+		"name": "redis",
+		"connector": "redis"
+	},
+  "mailgunProvider": {
+    "name": "mailgunProvider",
+    "connector": "mail",
+    "transports" : [{
+      "type" : "Mailgun",
+      "auth" : {
+        "api_key" : "key-%key%",
+        "domain": "domain"
+      }
+    }]
+  }
+}

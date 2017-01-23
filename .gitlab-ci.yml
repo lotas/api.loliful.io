@@ -1,0 +1,57 @@
+image: loliful/node:latest
+
+variables:
+  MYSQL_ROOT_PASSWORD: root
+
+#services:
+#  - redis:latest
+#  - mysql:latest
+
+# Deploy ssh keys
+# https://gitlab.com/gitlab-examples/ssh-private-key/blob/master/.gitlab-ci.yml
+# https://gitlab.com/help/ci/ssh_keys/README.md
+
+before_script:
+  # install ssh-agent
+  #  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  # run ssh-agent
+  - eval $(ssh-agent -s)
+  # add ssh key stored in SSH_PRIVATE_KEY variable to the agent store
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+  # disable host key checking (NOTE: makes you susceptible to man-in-the-middle attacks)
+  # WARNING: use only in docker container, if you use it with shell you will overwrite your user's ssh config
+  - mkdir -p ~/.ssh
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
+stages:
+  - test
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+api_tests:
+  stage: test
+  script:
+    - yarn
+    - cp server/aws.json.dist server/aws.json
+    - yarn run test-coverage
+    - bash <(curl -s https://codecov.io/bash) -t cad9b721-0a8d-4df6-905e-d1dfc341055a
+
+staging:
+  stage: deploy
+  environment: staging
+  script:
+    - git checkout staging
+    - pm2 deploy staging
+  only:
+  - staging
+
+production:
+  stage: deploy
+  environment: production
+  script:
+    - pm2 deploy production
+  only:
+    - master

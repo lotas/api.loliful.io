@@ -1,0 +1,36 @@
+<%- title %>
+
+<% if (locals.intro) { %>
+<% intro.forEach(function (introItem) { -%>
+<%- introItem %>
+<% }) -%>
+<% } %>
+
+<% if (locals.dictionary) { %>
+<% for (item in dictionary) { -%>
+<%- item.charAt(0).toUpperCase() + item.slice(1) %>: <%- dictionary[item] %>
+<% } -%>
+<% } %>
+
+<% if (locals.action) { %>
+<%- action.instructions %>
+<%- action.button.link %>
+<% } %>
+
+<% if (locals.joke) { %>
+<%- locals.joke.intro %>
+<%- locals.joke.outro %>
+<% } %>
+
+<% if (locals.outro) { %>
+<% outro.forEach(function (outroItem) { -%>
+<%- outroItem %>
+<% }) -%>
+<% } %>
+
+<%- signature %>,
+<%- product.name %>
+
+<%- product.copyright %>
+
+You can change your email preferences in your profile: <%- product.link %>/profile

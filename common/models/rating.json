@@ -1,0 +1,49 @@
+{
+  "name": "rating",
+  "base": "PersistedModel",
+  "properties": {
+    "userId": {
+      "type": "Number",
+      "id": true
+    },
+    "nailKarma": {
+      "type": "Number"
+    },
+    "hammerKarma": {
+      "type": "Number"
+    },
+    "nailCount": {
+      "type": "Number"
+    },
+    "hammerCount": {
+      "type": "Number"
+    },
+    "rating": {
+      "type": "Number",
+      "dataType": "FLOAT",
+      "description": "Magic calc rating"
+    },
+    "position": {
+      "type": "Number",
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "indexes": {
+    "position": {
+      "columns": "position",
+      "keys": {
+        "position": 1
+      }
+    }
+  },
+  "acls": [],
+  "methods": []
+}

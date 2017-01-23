@@ -1,0 +1,11 @@
+{
+	"name": "userLimits",
+	"base": "PersistedModel",
+	"idInjection": false,
+	"properties": {
+		"userId": {
+			"type": "number"
+		}
+	},
+	"validations": []
+}

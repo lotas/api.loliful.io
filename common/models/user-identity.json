@@ -1,0 +1,35 @@
+{
+	"name": "userIdentity",
+	"plural": "userIdentities",
+	"base": "UserIdentity",
+	"properties": {},
+	"validations": [],
+	"relations": {
+		"user": {
+			"type": "belongsTo",
+			"model": "user",
+			"foreignKey": "userId"
+		}
+	},
+	"acls": [
+		{
+			"accessType": "*",
+			"principalType": "ROLE",
+			"principalId": "$everyone",
+			"permission": "DENY"
+		}
+	],
+  "indexes": {
+    "unique_provider_external2": {
+			"columns": "provider, externalId",
+      "keys": {
+        "provider": 1,
+        "externalId": 1
+      },
+      "options": {
+        "unique": true
+      }
+    }
+  },
+	"methods": []
+}

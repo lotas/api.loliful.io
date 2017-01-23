@@ -1,0 +1,19 @@
+{
+  "name": "fbCalls",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "pageId": {
+      "type": "String"
+    },
+    "timeOfEvent": {
+      "type": "String"
+    },
+    "request": {
+       "type": "Object"
+    }
+  },
+  "mixins": {
+    "Timestamp": {}
+  }
+}

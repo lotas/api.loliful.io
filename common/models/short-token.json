@@ -1,0 +1,19 @@
+{
+  "name": "shortToken",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "properties": {
+    "token": {
+      "type": "String",
+      "id": true
+    },
+    "expires": {
+      "type": "Number",
+      "dataType": "BIGINT"
+    },
+    "data": {
+      "type": "Object"
+    }
+  },
+  "validations": []
+}

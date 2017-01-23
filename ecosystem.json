@@ -1,0 +1,58 @@
+{
+  /**
+   * Application configuration section
+   * http://pm2.keymetrics.io/docs/usage/application-declaration/
+   */
+  apps : [
+    // First application
+    {
+      name      : "server",
+      script    : "server/server.js",
+      instances : 1,
+      max_memory_restart: "200M",
+      env: {
+        DEBUG: "kontra:*"
+      },
+      env_production : {
+        NODE_ENV: "production",
+        CUSTOM_PORT: 3000
+      }
+    },
+    {
+      name: "mailer",
+      script: "server/mailer.js",
+      env: {
+        DEBUG: "kontra:*"
+      }
+    }
+  ],
+
+  deploy : {
+    production : {
+      user : "loliful",
+      host : "prod.hostname",
+      ref  : "origin/master",
+      repo : "git@gitlab.com:eyaspace/api.loliful.io.git",
+      path : "/home/loliful/app",
+      "post-deploy": "npm install; " +
+          " NODE_ENV=production node bin/auto-update.js; " +
+          " pm2 startOrRestart ecosystem.json --env production; ",
+      "env": {
+        NODE_ENV: "production",
+        CARDS_PATH: "/home/loliful/cards"
+      }
+    },
+    staging : {
+      user: "kontra",
+      host: "dev.hostname",
+      ref: "origin/staging",
+      repo: "git@gitlab.com:eyaspace/api.loliful.io.git",
+      path: "/home/kontra/app",
+      "post-deploy": "npm install; pm2 startOrRestart ecosystem.json --env staging; " +
+          " NODE_ENV=staging node bin/auto-update.js; ",
+      "env": {
+        NODE_ENV: "staging"
+      }
+    }
+  }
+}

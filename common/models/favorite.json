@@ -1,0 +1,61 @@
+{
+  "name": "favorite",
+  "plural": "favorites",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "indexes": {
+    "user_nails": {
+      "columns": "userId, nailId",
+      "keys": {
+        "userId": 1,
+        "nailId": 1
+      }
+    },
+    "user_hammers": {
+      "columns": "userId, hammerId",
+      "keys": {
+        "userId": 1,
+        "hammerId": 1
+      }
+    }
+  },
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nailId": {
+      "type": "Number"
+    },
+    "hammerId": {
+      "type": "Number"
+    },
+    "userId": {
+      "type": "Number",
+      "required": true
+    },
+    "created": {
+      "type": "Date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    },
+    "nail": {
+      "type": "belongsTo",
+      "model": "nail",
+      "foreignKey": "nailId"
+    },
+    "hammer": {
+      "type": "belongsTo",
+      "model": "hammer",
+      "foreignKey": "hammerId"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

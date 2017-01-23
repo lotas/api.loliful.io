@@ -1,0 +1,202 @@
+{
+  "name": "nail",
+  "base": "PersistedModel",
+  "strict": "validate",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "isPublic",
+    "group"
+  ],
+  "scope": {
+    "fields": [
+      "id",
+      "text",
+      "rating",
+      "countVotes",
+      "countAnswers",
+      "countShared",
+      "reported",
+      "created",
+      "userId"
+    ]
+  },
+  "mixins": {
+    "Votable": {},
+    "Timestamp": {},
+    "Favoritable": {},
+    "Sqlable": {},
+    "RestrictedRest": {
+      "updateAttributes": true
+    },
+    "Reportable": {},
+    "AttachMeta": {},
+    "Nsfw": {}
+  },
+  "properties": {
+    "nailId": {
+      "type": "string",
+      "defaultFn": "guid"
+    },
+    "rating": {
+      "type": "number",
+      "default": 0
+    },
+    "countAnswers": {
+      "type": "number",
+      "default": 0
+    },
+    "countVotes": {
+      "type": "number",
+      "default": 0
+    },
+    "groupId": {
+      "type": "number"
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "countShared": {
+      "type": "number",
+      "default": 0
+    },
+    "language": {
+      "type": "string",
+      "required": false
+    },
+    "isPublic": {
+      "type": "Boolean",
+      "default": true
+    },
+    "userId": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "indexes": {
+		"user_nails": {
+			"columns": "userId",
+			"keys": {
+				"userId": 1
+			}
+		}
+	},
+  "validations": [],
+  "relations": {
+    "hammers": {
+      "type": "hasMany",
+      "model": "hammer",
+      "foreignKey": "nailId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    },
+    "votes": {
+      "public": false,
+      "type": "hasMany",
+      "model": "votes",
+      "foreignKey": "nailId"
+    },
+    "favorites": {
+      "public": false,
+      "type": "hasMany",
+      "model": "favorite",
+      "foreignKey": "nailId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "deleteById"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "updateAttributes"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "updateAttributes"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "moderator",
+      "permission": "ALLOW",
+      "property": "updateAttributes"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateAttributes"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "deleteById"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "moderator",
+      "permission": "ALLOW",
+      "property": "deleteById"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "deleteById"
+    }
+  ],
+  "methods": []
+}

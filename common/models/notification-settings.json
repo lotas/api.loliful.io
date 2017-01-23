@@ -1,0 +1,54 @@
+{
+  "name": "notificationSettings",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "properties": {
+    "userId": {
+      "type": "Number",
+      "required": true,
+      "id": true
+    },
+    "emailReply": {
+      "type": "Number",
+      "dataType": "TINYINT",
+      "default": 1
+    },
+    "emailLike": {
+      "type": "Number",
+      "dataType": "TINYINT",
+      "default": 1
+    },
+    "emailReplySameIntro": {
+      "type": "Number",
+      "dataType": "TINYINT",
+      "default": 1
+    },
+    "emailDigest": {
+      "type": "Number",
+      "dataType": "TINYINT",
+      "default": 1
+    },
+    "pushNotifications": {
+      "type": "Number",
+      "dataType": "TINYINT",
+      "default": 1
+    },
+    "lastEmailed": {
+      "type": "Date"
+    }
+  },
+  "mixins": {
+    "Timestamp": {}
+  },
+  "hidden": [
+    "userId",
+    "pushNotifications"
+  ],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  }
+}

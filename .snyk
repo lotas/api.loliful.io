@@ -1,0 +1,45 @@
+version: v1.5.2
+ignore:
+  'npm:minimatch:20160620':
+    - loopback > strong-globalize > fs-sync > glob > minimatch:
+        reason: not sure how big impact is
+        expires: '2016-09-27T10:53:51.295Z'
+    - loopback > strong-remoting > strong-globalize > fs-sync > glob > minimatch:
+        reason: not sure how big impact is
+        expires: '2016-09-27T10:53:51.296Z'
+    - loopback > loopback-connector-remote > strong-remoting > strong-globalize > fs-sync > glob > minimatch:
+        reason: not sure how big impact is
+        expires: '2016-09-27T10:53:51.298Z'
+    - loopback-datasource-juggler > strong-globalize > fs-sync > glob > minimatch:
+        reason: not sure how big impact is
+        expires: '2016-09-27T10:53:51.298Z'
+    - loopback > loopback-connector-remote > loopback-datasource-juggler > strong-globalize > fs-sync > glob > minimatch:
+        reason: not sure how big impact is
+        expires: '2016-09-27T10:53:51.298Z'
+  'npm:negotiator:20160616':
+    - browser-sync > socket.io > engine.io > accepts > negotiator:
+        reason: 'not sure '
+        expires: '2016-09-27T10:53:51.299Z'
+    - browser-sync > serve-index > accepts > negotiator:
+        reason: 'not sure '
+        expires: '2016-09-27T10:53:51.300Z'
+    - socket.io > engine.io > accepts > negotiator:
+        reason: 'not sure '
+        expires: '2016-09-27T10:53:51.300Z'
+  'npm:connect:20130701':
+    - browser-sync > browser-sync-ui > weinre > express > connect:
+        reason: not used in prod
+        expires: '2016-09-27T10:53:51.300Z'
+  'npm:express:20140912':
+    - browser-sync > browser-sync-ui > weinre > express:
+        reason: not used in prod
+        expires: '2016-09-27T10:53:51.300Z'
+  'npm:qs:20140806':
+    - browser-sync > browser-sync-ui > weinre > express > qs:
+        reason: not used in prod
+        expires: '2016-09-27T10:53:51.301Z'
+  'npm:qs:20140806-1':
+    - browser-sync > browser-sync-ui > weinre > express > qs:
+        reason: not used in prod
+        expires: '2016-09-27T10:53:51.301Z'
+patch: {}

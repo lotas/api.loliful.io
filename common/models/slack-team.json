@@ -1,0 +1,27 @@
+{
+  "name": "slackTeam",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "teamId": {
+      "type": "String",
+      "required": true,
+      "index": true
+    },
+    "token": {
+      "type": "String"
+    },
+    "name": {
+      "type": "String"
+    },
+    "scope": {
+      "type": "String"
+    },
+    "response": {
+      "type": "Object"
+    }
+  },
+  "mixins": {
+    "Timestamp": {}
+  }
+}

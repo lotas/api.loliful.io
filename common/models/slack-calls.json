@@ -1,0 +1,45 @@
+{
+  "name": "slackCalls",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "teamId": {
+      "type": "String",
+      "required": true,
+      "index": true
+    },
+    "token": {
+      "type": "String"
+    },
+    "teamDomain": {
+      "type": "String"
+    },
+    "channelId": {
+      "type": "String"
+    },
+    "channelName": {
+      "type": "String"
+    },
+    "userId": {
+      "type": "String"
+    },
+    "userName": {
+      "type": "String"
+    },
+    "command": {
+      "type": "String"
+    },
+    "text": {
+      "type": "String"
+    },
+    "responseUrl": {
+      "type": "String"
+    },
+    "response": {
+       "type": "Object"
+    }
+  },
+  "mixins": {
+    "Timestamp": {}
+  }
+}

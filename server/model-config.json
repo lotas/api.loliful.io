@@ -1,0 +1,117 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models",
+      "./node_modules/loopback-component-passport/lib/models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "userCredential": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "userIdentity": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "nail": {
+    "dataSource": "mainDb",
+    "public": true
+  },
+  "hammer": {
+    "dataSource": "mainDb",
+    "public": true
+  },
+  "group": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "favorite": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "votes": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "user": {
+    "dataSource": "mainDb",
+    "public": true
+  },
+  "notification": {
+    "dataSource": "mainDb",
+    "public": true
+  },
+  "notificationSettings": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "userLimits": {
+    "dataSource": "db",
+    "public": false
+  },
+  "shortToken": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "share": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "shareClick": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "avatars": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "rating": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "slackTeam": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "slackCalls": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "fbCalls": {
+    "dataSource": "mainDb",
+    "public": false
+  },
+  "Email": {
+    "dataSource": "mailgunProvider",
+    "public": false
+  }
+}

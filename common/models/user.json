@@ -1,0 +1,162 @@
+{
+  "name": "user",
+  "base": "User",
+  "idInjection": true,
+  "properties": {
+    "userId": {
+      "type": "string",
+      "defaultFn": "uuidv4"
+    },
+    "name": {
+       "type": "String",
+       "dataType": "VARCHAR",
+       "length": 32
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "Default": false
+    },
+    "karma": {
+      "type": "Number",
+      "Default": 0
+    },
+    "nailKarma": {
+      "type": "Number",
+      "Default": 0
+    },
+    "hammerKarma": {
+      "type": "Number",
+      "Default": 0
+    },
+    "nailCount": {
+      "type": "Number",
+      "Default": 0
+    },
+    "hammerCount": {
+      "type": "Number",
+      "Default": 0
+    },
+    "avatar": {
+      "type": "String"
+    },
+    "accounts": {
+      "type": [
+        "Object"
+      ]
+    },
+    "settings": {
+      "type": "Object",
+      "default": {
+        "firstRun": true
+      }
+    },
+    "badges": {
+      "type": "Object",
+      "default": {
+        "pro": false,
+        "mvp": false
+      }
+    },
+    "about": {
+      "type": "String"
+    },
+    "emailUnverified": {
+      "type": "String"
+    },
+    "countReported": {
+      "type": "Number",
+      "Default": 0
+    }
+  },
+  "validations": [],
+  "hidden": [
+    "realm",
+    "credentials",
+    "challenges",
+    "verificationToken",
+    "lastUpdated",
+    "isDeleted"
+  ],
+  "mixins": {
+    "Timestamp": {},
+    "RestrictedRest": {}
+  },
+  "relations": {
+    "nails": {
+      "type": "hasMany",
+      "model": "nail",
+      "foreignKey": "userId"
+    },
+    "votes": {
+      "type": "hasMany",
+      "model": "vote",
+      "foreignKey": "ownerId"
+    },
+    "identities": {
+      "type": "hasMany",
+      "model": "userIdentity",
+      "foreignKey": "userId"
+    },
+    "credentials": {
+      "type": "hasMany",
+      "model": "userCredential",
+      "foreignKey": "userId"
+    },
+    "notificationSettings": {
+      "type": "hasOne",
+      "model": "notificationSettings",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "create"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "disable"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": [
+        "__get__notificationSettings",
+        "__update__notificationSettings"
+      ]
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "disable"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "stats"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": [
+        "setName",
+        "setAbout",
+        "setEmail"
+      ]
+    }
+  ],
+  "methods": []
+}

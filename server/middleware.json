@@ -1,0 +1,29 @@
+{
+	"initial:before": {
+		"loopback#favicon": {
+			"params": "./public/favicon.ico"
+		}
+	},
+	"initial": {
+		"compression": {},
+		"cors": {
+			"params": {
+				"origin": true,
+				"credentials": true,
+				"maxAge": 86400
+			}
+		},
+		"loopback-context#per-request": {}
+	},
+	"session": {},
+	"auth": {},
+	"parse": {},
+	"routes": {},
+	"files": {},
+	"final": {
+		"loopback#urlNotFound": {}
+	},
+	"final:after": {
+		"errorhandler": {}
+	}
+}

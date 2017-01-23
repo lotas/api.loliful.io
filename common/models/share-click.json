@@ -1,0 +1,32 @@
+{
+  "name": "shareClick",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "shareId": {
+      "type": "number",
+      "required": true,
+      "index": true
+    },
+    "created": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "userId": {
+      "type": "Number"
+    },
+    "network": {
+      "type": "String"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "shareItem": {
+      "type": "belongsTo",
+      "model": "share",
+      "foreignKey": "shareId"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

@@ -1,0 +1,38 @@
+{
+	"name": "group",
+	"base": "PersistedModel",
+	"strict": false,
+	"idInjection": false,
+	"options": {
+		"validateUpsert": true
+	},
+	"properties": {
+		"groupId": {
+			"type": "Number",
+			"id": true,
+			"index": true
+		},
+		"name": {
+			"type": "string",
+			"required": true,
+			"index": true
+		},
+		"countMembers": {
+			"type": "number"
+		},
+		"description": {
+			"type": "string"
+		}
+	},
+	"validations": [],
+	"relations": {},
+	"acls": [
+		{
+			"accessType": "*",
+			"principalType": "ROLE",
+			"principalId": "admin",
+			"permission": "ALLOW"
+		}
+	],
+	"methods": []
+}

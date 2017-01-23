@@ -1,0 +1,51 @@
+{
+  "name": "avatars",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "mysql": {
+      "charset": "utf8",
+      "collation": "utf8_general_ci"
+    }
+  },
+  "properties": {
+    "userId": {
+      "type": "Number",
+      "required": true
+    },
+    "source": {
+      "type": "String",
+      "dataType": "VARCHAR",
+      "length": "20"
+    },
+    "url": {
+      "type": "String",
+      "required": true
+    },
+    "meta": {
+      "type": "Object"
+    }
+  },
+  "mixins": {
+    "Timestamp": {}
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "indexes": {
+    "user_avatars": {
+      "columns": "userId",
+      "keys": {
+        "userId": 1
+      }
+    }
+  },
+  "acls": [],
+  "methods": []
+}
